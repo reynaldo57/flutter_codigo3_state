@@ -24,4 +24,4 @@ class _SuperheroeService{
   }
 
 }
-final superheroeSevices = new _SuperheroeService();
+final superheroeSevice = new _SuperheroeService();
