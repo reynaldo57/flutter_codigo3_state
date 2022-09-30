@@ -2,12 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_3_state/pages/register_superhero_page.dart';
+import 'package:flutter_codigo_3_state/services/superheroe_services.dart';
+import 'package:provider/provider.dart';
 
 class InfoSuperheroPage extends StatelessWidget {
   const InfoSuperheroPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final superheroe = Provider.of<SuperheroService>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("SuperHeroe"),
@@ -35,10 +40,10 @@ class InfoSuperheroPage extends StatelessWidget {
               ),
               Divider(),
               ListTile(
-                title: Text("Nombre: "),
+                title: Text("Nombre: ${superheroe.superheroe.name}"),
               ),
               ListTile(
-                title: Text("Años de Experiencia: "),
+                title: Text("Años de Experiencia: ${superheroe.superheroe.experience}"),
               ),
               Text(
                 "Poderes",
@@ -49,17 +54,10 @@ class InfoSuperheroPage extends StatelessWidget {
               ),
               Divider(),
 
-              ListTile(
-                title: Text("Poder 1: "),
-              ),
-              ListTile(
-                title: Text("Poder 2: "),
-              ),
-              ListTile(
-                title: Text("Poder 3: "),
-              ),
-              ListTile(
-                title: Text("Poder 4: "),
+              ...superheroe.superheroe.powers.map(
+                  (e) => ListTile(
+                    title: Text(e),
+                  ),
               ),
 
             ],
