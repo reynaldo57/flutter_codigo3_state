@@ -9,7 +9,7 @@ class InfoSuperheroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final superheroe = Provider.of<SuperheroService>(context);
+    final SuperheroService superheroe = Provider.of<SuperheroService>(context);
 
     return Scaffold(
         appBar: AppBar(
