@@ -14,4 +14,20 @@ class SuperheroService with ChangeNotifier{
     notifyListeners();
   }
   bool get superheroeExist => _superheroe != null;
+
+  deleteSuperheroe(){
+    _superheroe = null;
+    notifyListeners();
+  }
+
+  updateExperience(int exp){
+    _superheroe!.experience = exp;
+    notifyListeners();
+  }
+
+  addPowers(){
+    _superheroe!.powers.add("Powers ${_superheroe!.powers.length + 1}");
+    notifyListeners();
+  }
+
 }

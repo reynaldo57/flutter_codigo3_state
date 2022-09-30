@@ -37,16 +37,14 @@ class RegisterSuperHeroPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
               child: Text("Actualizar Experiencia", style: TextStyle(color: Colors.white),),
               onPressed: (){
-
-
+                superheroeService.updateExperience(100);
               },
             ),
             MaterialButton(
               color: Colors.deepPurpleAccent,
               child: Text("Añadir Superpoderes", style: TextStyle(color: Colors.white),),
               onPressed: (){
-
-
+                superheroeService.addPowers();
               },
             ),
           ],
