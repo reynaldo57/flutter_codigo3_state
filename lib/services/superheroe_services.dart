@@ -17,6 +17,16 @@ class _SuperheroeService{
     _superheroeStreamController.add(_superheroe!);
   }
 
+  changeExperience(int experience){
+    _superheroe!.experience = experience;
+    _superheroeStreamController.add(_superheroe!);
+  }
+
+  addPowers(){
+    _superheroe!.powers.add("Power ${_superheroe!.powers.length + 1}");
+    _superheroeStreamController.add(_superheroe!);
+  }
+
   bool get superheroeExist  => (_superheroe != null) ? true : false;
 
   closeStream(){
