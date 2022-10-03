@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter_codigo_3_state/model/super_hero_model.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +20,13 @@ class SuperheroeCubit extends Cubit<SuperheroeState>{
 
 //Cambiar Experiencia
 
-void changeExperience(){
-
+  void changeExperience(int exp){
+    final currentState = state;
+    if(currentState is SuperheroeCreate){
+      //currentState.superheroe.experience = 100;
+      final newSuperheroe = currentState.superheroe.copyWith(experience: exp);
+      emit(SuperheroeCreate(superheroe: newSuperheroe));
+    }
 }
 
 //Añadir poderes

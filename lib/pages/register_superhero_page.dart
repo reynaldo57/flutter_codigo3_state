@@ -50,6 +50,7 @@ class RegisterSuperHeroPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
               child: Text("Actualizar Experiencia", style: TextStyle(color: Colors.white),),
               onPressed: (){
+                context.read<SuperheroeCubit>().changeExperience(1000);
               },
             ),
             MaterialButton(
