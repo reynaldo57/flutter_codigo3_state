@@ -14,6 +14,12 @@ class InfoSuperheroPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("SuperHeroe"),
         backgroundColor: Colors.deepPurpleAccent,
+        actions: [
+          IconButton(onPressed: (){
+            context.read<SuperheroeCubit>().deleteSuperheroe();
+          }, icon: Icon(Icons.delete),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){

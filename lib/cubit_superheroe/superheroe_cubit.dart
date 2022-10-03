@@ -33,13 +33,18 @@ class SuperheroeCubit extends Cubit<SuperheroeState>{
 
     final currentState = state;
     if(currentState is SuperheroeCreate){
-      // List<String> newPowers = currentState.superheroe.powers;
-      // newPowers.add("Power ${newPowers.length + 1}");
-      // final newSuperheroe = currentState.superheroe.copyWith(powers: newPowers);
-      emit(SuperheroeCreate(superheroe: currentState.superheroe.copyWith()..powers.add("power 12")));
+      List<String> newPowers = currentState.superheroe.powers;
+      newPowers.add("Power ${newPowers.length + 1}");
+      final newSuperheroe = currentState.superheroe.copyWith(powers: newPowers);
+      emit(SuperheroeCreate(superheroe: newSuperheroe));
+      //emit(SuperheroeCreate(superheroe: currentState.superheroe.copyWith()..powers.add("power 12")));
     }
   }
 
 //Eliminar superheroe
+
+  void deleteSuperheroe(){
+    emit(SuperheroeInit());
+  }
 
 }
