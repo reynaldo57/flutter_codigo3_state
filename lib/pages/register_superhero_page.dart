@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_codigo_3_state/cubit_superheroe/superheroe_cubit.dart';
 import 'package:flutter_codigo_3_state/model/super_hero_model.dart';
-import 'package:flutter_codigo_3_state/services/superheroe_services.dart';
 import 'package:provider/provider.dart';
 
 class RegisterSuperHeroPage extends StatelessWidget {
@@ -14,7 +14,18 @@ class RegisterSuperHeroPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Register"),
+        title: BlocBuilder<SuperheroeCubit, SuperheroeState>(
+          builder: (context, state){
+            switch(state.runtimeType){
+              case SuperheroeInit:
+                return Text("Register");
+              case SuperheroeCreate:
+                return Text((state as SuperheroeCreate).superheroe.name);
+              default:
+                return Text("Register");
+            }
+          },
+        ),
         backgroundColor: Colors.deepPurpleAccent,
       ),
       body: Center(
