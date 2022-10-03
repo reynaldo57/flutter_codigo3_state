@@ -57,6 +57,7 @@ class RegisterSuperHeroPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
               child: Text("Añadir Superpoderes", style: TextStyle(color: Colors.white),),
               onPressed: (){
+                context.read<SuperheroeCubit>().addPowers();
               },
             ),
           ],
