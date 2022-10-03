@@ -1,6 +1,4 @@
 
-import 'dart:math';
-
 import 'package:flutter_codigo_3_state/model/super_hero_model.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,10 +33,10 @@ class SuperheroeCubit extends Cubit<SuperheroeState>{
 
     final currentState = state;
     if(currentState is SuperheroeCreate){
-      List<String> newPowers = currentState.superheroe.powers;
-      newPowers.add("Power ${newPowers.length + 1}");
-      final newSuperheroe = currentState.superheroe.copyWith(powers: newPowers);
-      emit(SuperheroeCreate(superheroe: newSuperheroe));
+      // List<String> newPowers = currentState.superheroe.powers;
+      // newPowers.add("Power ${newPowers.length + 1}");
+      // final newSuperheroe = currentState.superheroe.copyWith(powers: newPowers);
+      emit(SuperheroeCreate(superheroe: currentState.superheroe.copyWith()..powers.add("power 12")));
     }
   }
 
