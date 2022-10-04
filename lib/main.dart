@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_3_state/pages/calculator_page.dart';
 import 'package:flutter_codigo_3_state/pages/info_superhero_page_dart.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: InfoSuperheroPage(),
+      home: CalculatorPage(),
     );
   }
 }
