@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_codigo_3_state/bloc/calculator/calculator_bloc.dart';
 
 class CalculatorPage extends StatelessWidget {
 
@@ -17,7 +19,9 @@ class CalculatorPage extends StatelessWidget {
             children: [
               Text("1", style: TextStyle(fontSize: 30),),
               SizedBox(width: 20,),
-              MaterialButton(onPressed: (){},
+              MaterialButton(onPressed: (){
+                BlocProvider.of<CalculatorBloc>(context).add(AddNumber1());
+              },
               child: Text("Add", style: TextStyle(color: Colors.white),),
               color: Colors.black87,
               ),
@@ -31,7 +35,9 @@ class CalculatorPage extends StatelessWidget {
             children: [
               Text("2", style: TextStyle(fontSize: 30),),
               SizedBox(width: 20,),
-              MaterialButton(onPressed: (){},
+              MaterialButton(onPressed: (){
+                BlocProvider.of<CalculatorBloc>(context).add(AddNumber2());
+              },
                 child: Text("Add", style: TextStyle(color: Colors.white),),
                 color: Colors.black87,
               ),
@@ -51,7 +57,9 @@ class CalculatorPage extends StatelessWidget {
               "Calculate",
               style: TextStyle(fontSize: 16.0, color: Colors.white),
             ),
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<CalculatorBloc>(context).add(CalculateResult());
+            },
           ),
 
           SizedBox(
@@ -63,7 +71,9 @@ class CalculatorPage extends StatelessWidget {
               "Reset",
               style: TextStyle(fontSize: 16.0, color: Colors.white),
             ),
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<CalculatorBloc>(context).add(Reset());
+            },
           ),
           
         ],
