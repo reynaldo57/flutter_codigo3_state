@@ -9,20 +9,18 @@ class CalculatorBloc extends Bloc<CalculatorEvent,CalculatorState>{
   CalculatorBloc() : super(CalculatorState()){
 
    on<AddNumber1>((event, emit) {
-     print("ADD NUMBER 1::: ${event}");
-     print("ADD NUMBER 1::: ${emit}");
+     print(state.copyWith(number1: (1 + int.parse(state.number1)).toString()).number1);
+     emit(state.copyWith(number1: (1 + int.parse(state.number1)).toString()));
    });
    on<AddNumber2>((event, emit) {
-     print("ADD NUMBER 2::: ${event}");
-     print("ADD NUMBER 2::: ${emit}");
+     print(state.copyWith(number2: (1 + int.parse(state.number2)).toString()).number2);
+     emit(state.copyWith(number2: (1 + int.parse(state.number2)).toString()));
    });
    on<Reset>((event, emit) {
-     print("ADD NUMBER 3::: ${event}");
-     print("ADD NUMBER 3::: ${emit}");
+
    });
    on<CalculateResult>((event, emit) {
-     print("ADD NUMBER 4::: ${event}");
-     print("ADD NUMBER 4::: ${emit}");
+
    });
 
   }

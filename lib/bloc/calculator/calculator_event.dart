@@ -9,9 +9,19 @@ abstract class CalculatorEvent{
 
 //definir eventos
 
-class AddNumber1 extends CalculatorEvent{}
+class AddNumber1 extends CalculatorEvent{
+  String? number1;
+  AddNumber1({
+    this.number1
+});
+}
 
-class AddNumber2 extends CalculatorEvent{}
+class AddNumber2 extends CalculatorEvent{
+  String? number2;
+  AddNumber2({
+    this.number2
+  });
+}
 
 class CalculateResult extends CalculatorEvent{}
 
