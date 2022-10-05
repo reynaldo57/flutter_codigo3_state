@@ -7,8 +7,12 @@ part 'superheroe_state.dart';
 
 class SuperheroeBloc extends Bloc<SuperuserEvent, SuperheroeState>{
   SuperheroeBloc() : super(SuperheroeState()) {
-    on<SuperheroeLoad>((event, emit) {
 
+    print("ESTATE  ${state.superheroe}");
+    print("ESTATE  ${state.superheroeExist}");
+
+    on<SuperheroeLoad>((event, emit) {
+      emit(SuperheroeState(superheroe: event.sup));
     });
 
     on<SuperheroeChangeExperience>((event, emit) {
