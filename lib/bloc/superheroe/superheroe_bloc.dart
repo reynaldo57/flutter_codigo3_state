@@ -6,6 +6,21 @@ part 'superheroe_event.dart';
 part 'superheroe_state.dart';
 
 class SuperheroeBloc extends Bloc<SuperuserEvent, SuperheroeState>{
-  SuperheroeBloc() : super(SuperheroeState());
+  SuperheroeBloc() : super(SuperheroeState()) {
+    on<SuperheroeLoad>((event, emit) {
 
+    });
+
+    on<SuperheroeChangeExperience>((event, emit) {
+
+    });
+
+    on<SuperheroeAddPowers>((event, emit) {
+
+    });
+
+    on<SuperheroeDelete>((event, emit) {
+
+    });
+  }
 }
