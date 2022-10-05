@@ -69,7 +69,7 @@ class CalculatorPage extends StatelessWidget {
               ),
               Divider(),
               Text(
-                "Result:: 10",
+                "Result:: ${state.result}",
                 style: TextStyle(fontSize: 32.0),
               ),
               SizedBox(

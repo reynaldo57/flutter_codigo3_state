@@ -17,10 +17,10 @@ class CalculatorBloc extends Bloc<CalculatorEvent,CalculatorState>{
      emit(state.copyWith(number2: (1 + int.parse(state.number2)).toString()));
    });
    on<Reset>((event, emit) {
-
+     emit(state.copyWith(result: "0", number1: "0", number2: "0"));
    });
    on<CalculateResult>((event, emit) {
-
+     emit(state.copyWith(result: (int.parse(state.number1) + int.parse(state.number2)).toString()));
    });
 
   }
