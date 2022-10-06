@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_codigo_3_state/bloc/superheroe/superheroe_bloc.dart';
+import 'package:flutter_codigo_3_state/model/super_hero_model.dart';
 import 'package:flutter_codigo_3_state/pages/register_superhero_page.dart';
 
 class InfoSuperheroPage extends StatelessWidget {
@@ -25,7 +26,7 @@ class InfoSuperheroPage extends StatelessWidget {
       body: BlocBuilder<SuperheroeBloc, SuperheroeState>(
         builder: (context, state){
           if(state.superheroeExist){
-            return InfoSuperheroeWidget();
+            return InfoSuperheroeWidget(superheroe: state.superheroe!,);
           }else{
             return Center(child: Text("Aun no hayy Superheroe"),);
           }
@@ -37,6 +38,9 @@ class InfoSuperheroPage extends StatelessWidget {
 }
 
 class InfoSuperheroeWidget extends StatelessWidget {
+
+  Superheroe superheroe;
+  InfoSuperheroeWidget({required this.superheroe});
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +59,10 @@ class InfoSuperheroeWidget extends StatelessWidget {
             ),
             Divider(),
             ListTile(
-              title: Text("Nombre: "),
+              title: Text("Nombre: ${superheroe.name}"),
             ),
             ListTile(
-              title: Text("Años de Experiencia: "),
+              title: Text("Años de Experiencia: ${superheroe.experience}"),
             ),
             Text(
               "Poderes",
@@ -68,19 +72,8 @@ class InfoSuperheroeWidget extends StatelessWidget {
               ),
             ),
             Divider(),
-
-            ListTile(
-              title: Text("Poder 1: "),
-            ),
-            ListTile(
-              title: Text("Poder 2: "),
-            ),
-            ListTile(
-              title: Text("Poder 3: "),
-            ),
-            ListTile(
-              title: Text("Poder 4: "),
-            ),
+            ...superheroe.powers.map((e) => ListTile(
+              title: Text(e),))
 
           ],
         ),

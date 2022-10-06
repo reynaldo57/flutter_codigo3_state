@@ -10,8 +10,14 @@ class SuperheroeLoad extends SuperuserEvent{
   SuperheroeLoad({required this.sup});
 }
 
-class SuperheroeChangeExperience extends SuperuserEvent{}
+class SuperheroeChangeExperience extends SuperuserEvent{
+  int newExperience;
+  SuperheroeChangeExperience({required this.newExperience});
+}
 
-class SuperheroeAddPowers extends SuperuserEvent{}
+class SuperheroeAddPowers extends SuperuserEvent{
+  final String power;
+  SuperheroeAddPowers({required this.power});
+}
 
 class SuperheroeDelete extends SuperuserEvent{}

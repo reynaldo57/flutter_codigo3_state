@@ -16,11 +16,11 @@ class SuperheroeBloc extends Bloc<SuperuserEvent, SuperheroeState>{
     });
 
     on<SuperheroeChangeExperience>((event, emit) {
-
+      emit(SuperheroeState(superheroe: state.superheroe!.copyWith(experience: event.newExperience)));
     });
 
     on<SuperheroeAddPowers>((event, emit) {
-
+      emit(SuperheroeState(superheroe: state.superheroe!.copyWith(powers: [...state.superheroe!.powers, event.power])));
     });
 
     on<SuperheroeDelete>((event, emit) {
